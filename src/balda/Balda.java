@@ -59,19 +59,19 @@ public class Balda {
                 System.out.println("\nWrong attempt, try again...");
                 fail++;
             }
-            if (countingStar(secret) == 0)
+            if (countStar(secret) == 0)
                 flag = false;
             if (fail == 6)
                 flag = false;
         }
-        if (countingStar(secret) == 0)
+        if (countStar(secret) == 0)
             System.out.println("\nCongratulations! your FAIL = " + fail + " | answer is  =  " + secret + "):\n");
         else
             System.out.println("You are lose! You has 6 attempts! Secret word is " + secret);
         start();
     }
 
-    private static int countingStar(String secret) {
+    private static int countStar(String secret) {
         return secret.length() - secret.replace("*", "").length();
     }
 
@@ -79,17 +79,16 @@ public class Balda {
         char[] masSecret = secret.toCharArray();
         char[] masGen = generalWord.toCharArray();
         for (int i = 0; i < secret.length(); i++) {
-            if (masSecret[i] != masGen[i] && masGen[i] == generalWord.charAt(pos))
+            if (masGen[i] == generalWord.charAt(pos))
                 masSecret[i] = generalWord.charAt(pos);
-
         }
         return new String(masSecret);
     }
 
-    private static String createSecret(int lengthOfGeneralW) {
+    private static String createSecret(int lengthOfGeneralWorld) {
         String tempString = "";
         StringBuffer stringBuffer = new StringBuffer(tempString);
-        for (int j = 0; j < lengthOfGeneralW; j++) {
+        for (int j = 0; j < lengthOfGeneralWorld; j++) {
             stringBuffer.append("*");
         }
         return stringBuffer.toString();
