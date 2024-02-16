@@ -79,7 +79,7 @@ public class Balda {
         char[] masSecret = secret.toCharArray();
         char[] masGen = generalWord.toCharArray();
         for (int i = 0; i < secret.length(); i++) {
-            if (masSecret[i] != masGen[i] & masGen[i] == secretSymdol(generalWord, pos))
+            if (masSecret[i] != masGen[i] && masGen[i] == generalWord.charAt(pos))
                 masSecret[i] = generalWord.charAt(pos);
 
         }
@@ -95,9 +95,7 @@ public class Balda {
         return stringBuffer.toString();
     }
 
-    private static char secretSymdol(String genWord, int pos) {
-        return genWord.charAt(pos);
-    }
+
 
     private static String startCheck(String regExp, String message) {
         Scanner scanner = new Scanner(System.in);
