@@ -18,7 +18,7 @@ public class Balda {
     }
 
     private static void start() {
-        System.out.println("\nMenu \"Balda\"\nChoose you option ( \"1\" - start Game; \"2\" - quit game):");
+        System.out.println("\tMenu \"Balda\"\nChoose you option ( \"1\" - start Game; \"2\" - quit game):");
 
         String input = startCheck(regExpStart, failMessageOpinion);
 
@@ -67,7 +67,7 @@ public class Balda {
         if (countStar(secret) == 0)
             System.out.println("\nCongratulations! your FAIL = " + fail + " | answer is  =  " + secret + "):\n");
         else
-            System.out.println("You are lose! You has 6 attempts! Secret word is " + secret);
+            System.out.println("\nYou are lose! You has 6 attempts! Secret word is \"" + generalWord +"\"");
         start();
     }
 
