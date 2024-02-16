@@ -43,7 +43,7 @@ public class Balda {
         String generalWord = listOfWords[random.nextInt(5)];
         String secret = "";
 
-        secret = createSecret(secret, generalWord);
+        secret = createSecret(generalWord.length());
 
         while (flag) {
             System.out.println("\nPlease print a letter( FAIL = " + fail + " | status =  " + secret + "):");
@@ -86,9 +86,10 @@ public class Balda {
         return new String(masSecret);
     }
 
-    private static String createSecret(String secret, String generalWorld) {
-        StringBuffer stringBuffer = new StringBuffer(secret);
-        for (int j = 0; j < generalWorld.length(); j++) {
+    private static String createSecret(int lengthOfGeneralW) {
+        String tempString = "";
+        StringBuffer stringBuffer = new StringBuffer(tempString);
+        for (int j = 0; j < lengthOfGeneralW; j++) {
             stringBuffer.append("*");
         }
         return stringBuffer.toString();
