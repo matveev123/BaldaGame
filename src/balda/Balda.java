@@ -53,7 +53,7 @@ public class Balda {
             pos = generalWord.indexOf(letter);
 
             if (generalWord.contains(letter)) {
-                secret=appearingSecret(secret, generalWord, pos);
+                secret= appearLetter(secret, generalWord, pos);
 
             } else {
                 System.out.println("\nWrong attempt, try again...");
@@ -75,7 +75,7 @@ public class Balda {
         return secret.length() - secret.replace("*", "").length();
     }
 
-    private static String appearingSecret(String secret, String generalWord, int pos) {
+    private static String appearLetter(String secret, String generalWord, int pos) {
         char[] masSecret = secret.toCharArray();
         char[] masGen = generalWord.toCharArray();
         for (int i = 0; i < secret.length(); i++) {
