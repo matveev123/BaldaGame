@@ -6,12 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Balda {
-    private static final String[] listOfWords = {"абзац", "порой", "закол", "ремис", "холоп"};
+    private static final String[] LIST_OF_WORDS = {"абзац", "порой", "закол", "ремис", "холоп"};
 
-    private static final String regExpStart = "^(1|2)$";
-    private static final String regExpGenrlCheck = "^[a-я]$";
-    private static final String failMessageAttempt = "Input Correct symbol (а-я)!";
-    private static final String failMessageOpinion = "Error! Input correct - \"1\" or \"2\"";
+    private static final String REG_EXP_START = "^(1|2)$";
+    private static final String REG_EXP_GNRL_CHECK = "^[a-я]$";
+    private static final String ERROR_MESSAGE_INCORRECT_LETTER = "Input Correct symbol (а-я)!";
+    private static final String ERROR_MESSAGE_INCORRECT_MENU = "Error! Input correct - \"1\" or \"2\"";
 
     public static void main(String[] args) {
         start();
@@ -20,7 +20,7 @@ public class Balda {
     private static void start() {
         System.out.println("\tMenu \"Balda\"\nChoose you option ( \"1\" - start Game; \"2\" - quit game):");
 
-        String input = startCheck(regExpStart, failMessageOpinion);
+        String input = startCheck(REG_EXP_START, ERROR_MESSAGE_INCORRECT_MENU);
 
         switch (input) {
             case "1": {
@@ -40,7 +40,7 @@ public class Balda {
         int pos;
         boolean flag = true;
         Random random = new Random();
-        String generalWord = listOfWords[random.nextInt(5)];
+        String generalWord = LIST_OF_WORDS[random.nextInt(5)];
         String secret = "";
 
         secret = createSecret(generalWord.length());
@@ -48,7 +48,7 @@ public class Balda {
         while (flag) {
             System.out.println("\nPlease print a letter( FAIL = " + fail + " | status =  " + secret + "):");
 
-            String letter = startCheck(regExpGenrlCheck, failMessageAttempt).toLowerCase();
+            String letter = startCheck(REG_EXP_GNRL_CHECK, ERROR_MESSAGE_INCORRECT_LETTER).toLowerCase();
 
             pos = generalWord.indexOf(letter);
 
