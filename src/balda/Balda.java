@@ -38,14 +38,13 @@ public class Balda {
     public static void bigStart() {
         int fail = 0;
         int pos;
-        boolean flag = true;
         Random random = new Random();
         String generalWord = LIST_OF_WORDS[random.nextInt(5)];
         String secret = "";
 
         secret = createSecret(generalWord.length());
 
-        while (flag) {
+        while (true) {
             System.out.println("\nPlease print a letter( FAIL = " + fail + " | status =  " + secret + "):");
 
             String letter = startCheck(REG_EXP_GNRL_CHECK, ERROR_MESSAGE_INCORRECT_LETTER).toLowerCase();
@@ -53,21 +52,20 @@ public class Balda {
             pos = generalWord.indexOf(letter);
 
             if (generalWord.contains(letter)) {
-                secret= appearLetter(secret, generalWord, pos);
+                secret = appearLetter(secret, generalWord, pos);
 
             } else {
                 System.out.println("\nWrong attempt, try again...");
                 fail++;
             }
-            if (countStar(secret) == 0)
-                flag = false;
-            if (fail == 6)
-                flag = false;
+            if (countStar(secret) == 0 | fail == 6)
+                break;
+
         }
         if (countStar(secret) == 0)
             System.out.println("\nCongratulations! your FAIL = " + fail + " | answer is  =  " + secret + "):\n");
         else
-            System.out.println("\nYou are lose! You has 6 attempts! Secret word is \"" + generalWord +"\"");
+            System.out.println("\nYou are lose! You has 6 attempts! Secret word is \"" + generalWord + "\"");
         start();
     }
 
@@ -93,7 +91,6 @@ public class Balda {
         }
         return stringBuffer.toString();
     }
-
 
 
     private static String startCheck(String regExp, String message) {
